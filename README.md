@@ -45,4 +45,4 @@ codeInputType |   password （密码圆点展示）text 明文展示
 ## 效果图
 
 
-
+<img src='https://github.com/lwjfork/CodeEditText/blob/master/example.jpg' height='600'/>
