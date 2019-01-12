@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CodeEditText">
+        <!--正常边框、填充、下划线颜色-->
+        <attr name="blockNormalColor" format="color" />
+        <!--获取焦点时边框、填充、下划线颜色-->
+        <attr name="blockFocusColor" format="color" />
+        <!--输入错误时边框、填充、下划线颜色-->
+        <attr name="blockErrorColor" format="color" />
+        <!--画边框及填充色是的圆角-->
+        <attr name="blockCorner" format="dimension" />
+        <!--边框及下划线时线的宽度-->
+        <attr name="blockLineWidth" format="dimension" />
+        <!--输入框间距-->
+        <attr name="blockSpace" format="dimension" />
+        <!--边框、线、填充类型-->
+        <attr name="blockShape">
+            <!--边框-->
+            <enum name="stroke" value="1" />
+            <!--填充-->
+            <enum name="solid" value="2" />
+            <!--下划线-->
+            <enum name="underline" value="3" />
+            <!--什么都不画的鬼东西-->
+            <enum name="none" value="-1" />
+        </attr>
+        <!--显示样式 支持明文和密码两种，密码时画圆点-->
+        <attr name="codeInputType">
+            <!--密码-->
+            <enum name="password" value="1" />
+            <!--明文-->
+            <enum name="text" value="2" />
+            <!--什么都不画的鬼东西-->
+            <enum name="none" value="-1" />
+        </attr>
+        <!--显示圆点、明文时的字体颜色-->
+        <attr name="codeTextColor" format="color" />
+        <!--明文时字体大小-->
+        <attr name="codeTextSize" format="dimension" />
+        <!--密码样式时圆点的半径-->
+        <attr name="dotRadius" format="dimension" />
+        <!--输入码的最大长度-->
+        <attr name="maxCodeLength" format="integer" />
+        <!--是否显示光标-->
+        <attr name="showCursor" format="boolean" />
+        <!--光标闪烁间隔-->
+        <attr name="cursorDuration" format="integer" />
+        <!--光标宽度-->
+        <attr name="cursorWidth" format="dimension" />
+        <!--光标颜色 没有设置时默认取 codeTextColor 颜色-->
+        <attr name="cursorColor" format="color|reference" />
+    </declare-styleable>
+
+
+</resources>
