@@ -5,7 +5,7 @@ import android.graphics.Rect;
 /**
  * Created by lwj on 2019/1/12.
  * lwjfork@gmail.com
- * 明文绘制
+ * 什么都不绘制
  */
 public class NoneTextDrawer extends BaseTextDrawer {
 

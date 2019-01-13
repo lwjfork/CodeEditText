@@ -16,10 +16,8 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 
 import com.lwjfork.code.block.BaseBlockDrawer;
 import com.lwjfork.code.block.NoneBlockDrawer;
@@ -239,13 +237,7 @@ public class CodeEditText extends EditText {
 
     private void forbidCopyAndPaste() {
         setLongClickable(false);
-        setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                clearFocus();
-                return false;
-            }
-        });
+        setTextIsSelectable(false);
         setCustomSelectionActionModeCallback(new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -278,6 +270,11 @@ public class CodeEditText extends EditText {
         return super.onTouchEvent(event);
     }
 
+    @Override
+    public boolean onTextContextMenuItem(int id) {
+        if (id == android.R.id.paste) return false;
+        return super.onTextContextMenuItem(id);
+    }
 
     private void setInsertionDisabled() {
         try {
@@ -289,6 +286,10 @@ public class CodeEditText extends EditText {
             Field mInsertionControllerEnabledField = editorClass.getDeclaredField("mInsertionControllerEnabled");
             mInsertionControllerEnabledField.setAccessible(true);
             mInsertionControllerEnabledField.set(editorObject, false);
+
+            Field mSelectionControllerEnabledField = editorClass.getDeclaredField("mSelectionControllerEnabled");
+            mSelectionControllerEnabledField.setAccessible(true);
+            mSelectionControllerEnabledField.set(editorObject, false);
         } catch (Exception ignored) {
             // ignore exception here
         }

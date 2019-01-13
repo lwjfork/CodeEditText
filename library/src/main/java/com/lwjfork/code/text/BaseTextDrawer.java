@@ -50,6 +50,9 @@ public abstract class BaseTextDrawer extends BaseDrawer {
         if (canvas == null) {
             return;
         }
+        if (textPaint == null) {
+            initPaint();
+        }
         clearCanvas(canvas);
         int length = content.length();
         for (int i = 0; i < length; i++) {
