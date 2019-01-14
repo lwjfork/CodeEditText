@@ -126,7 +126,7 @@ public class CodeEditText extends EditText {
         codeInputType = typedArray.getInteger(R.styleable.CodeEditText_codeInputType, CodeInputType.NONE);
         textDrawer = createTextDrawer(codeInputType, codeTextColor, codeTextSize, dotRadius);
 
-        blockNormalColor = typedArray.getColor(R.styleable.CodeEditText_blockNormalColor,codeTextColor);
+        blockNormalColor = typedArray.getColor(R.styleable.CodeEditText_blockNormalColor, codeTextColor);
         blockFocusColor = typedArray.getColor(R.styleable.CodeEditText_blockFocusColor, blockNormalColor);
         blockErrorColor = typedArray.getColor(R.styleable.CodeEditText_blockErrorColor, blockNormalColor);
         blockLineWidth = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_blockLineWidth, dp2px(1));
@@ -143,10 +143,30 @@ public class CodeEditText extends EditText {
         typedArray.recycle();
     }
 
+    /**
+     * 光标绘制者
+     *
+     * @param showCursor
+     * @param cursorDuration
+     * @param cursorWidth
+     * @param cursorColor
+     * @return
+     */
     private CursorDrawer createCursorDrawer(boolean showCursor, int cursorDuration, int cursorWidth, int cursorColor) {
         return new CursorDrawer(showCursor, cursorDuration, cursorWidth, cursorColor);
     }
 
+    /**
+     * 方框绘制者
+     *
+     * @param blockNormalColor
+     * @param blockFocusColor
+     * @param blockErrorColor
+     * @param blockShape
+     * @param blockLineWidth
+     * @param blockCorner
+     * @return
+     */
     private BaseBlockDrawer createBlockDrawer(int blockNormalColor, int blockFocusColor, int blockErrorColor, int blockShape, int blockLineWidth, int blockCorner) {
         switch (blockShape) {
             case BlockShape.SOLID:
@@ -160,6 +180,15 @@ public class CodeEditText extends EditText {
         }
     }
 
+    /**
+     * 文本绘制者
+     *
+     * @param codeInputType
+     * @param codeTextColor
+     * @param codeTextSize
+     * @param dotRadius
+     * @return
+     */
     private BaseTextDrawer createTextDrawer(int codeInputType, int codeTextColor, int codeTextSize, int dotRadius) {
         switch (codeInputType) {
             case CodeInputType.TEXT:
@@ -188,6 +217,12 @@ public class CodeEditText extends EditText {
         initBitmapAndCanvas(measureWidth, measureHeight);
     }
 
+    /**
+     * 计算每个输入框的位置，并初始化绘制者
+     *
+     * @param measureWidth
+     * @param measureHeight
+     */
     private void initRect(int measureWidth, int measureHeight) {
         if (blockRects == null) {
             blockRects = new ArrayList<>();
@@ -212,6 +247,12 @@ public class CodeEditText extends EditText {
         cursorDrawer.setBlockRects(blockRects);
     }
 
+    /**
+     * 创建Bitmap 和 Canvas
+     *
+     * @param measureWidth
+     * @param measureHeight
+     */
     private void initBitmapAndCanvas(int measureWidth, int measureHeight) {
         blockBitmap = blockDrawer.createBitmapAndCanvas(measureWidth, measureHeight);
         textBitmap = textDrawer.createBitmapAndCanvas(measureWidth, measureHeight);
@@ -323,7 +364,14 @@ public class CodeEditText extends EditText {
         void onInputCompleted(CharSequence text);
     }
 
-
+    /**
+     * 监听文本变化，并更改UI
+     *
+     * @param text
+     * @param start
+     * @param lengthBefore
+     * @param lengthAfter
+     */
     @Override
     protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
         if (isInEditMode()) {
@@ -357,8 +405,21 @@ public class CodeEditText extends EditText {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        recycleBitmap(blockBitmap);
+        recycleBitmap(textBitmap);
+        recycleBitmap(cursorBitmap);
     }
 
+    /**
+     * 销毁Bitmap
+     *
+     * @param bitmap
+     */
+    private void recycleBitmap(Bitmap bitmap) {
+        if (bitmap != null && !bitmap.isRecycled()) {
+            bitmap.recycle();
+        }
+    }
 
     /**
      * 清空所有数据

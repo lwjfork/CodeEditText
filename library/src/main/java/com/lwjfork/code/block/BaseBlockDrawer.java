@@ -61,11 +61,13 @@ public abstract class BaseBlockDrawer extends BaseDrawer {
         }
     }
 
-
+    // 焦点获取绘制
     protected abstract void drawFocusedBlock(RectF rectF);
 
+    // 常态绘制
     protected abstract void drawNormalBlock(RectF rectF);
 
+    // 错误态绘制
     protected abstract void drawErrorBlock(RectF rectF);
 
     public int getBlockNormalColor() {
