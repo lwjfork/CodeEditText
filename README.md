@@ -16,17 +16,17 @@
 
 属性名 | 属性说明
 :---:|:---:
-blockNormalColor |  正常状态下的颜色
-blockFocusColor |   待输入且EditText获取了焦点时颜色
-blockErrorColor |   错误状态下颜色
-blockLineWidth |   绘制边框或者下划线的线的宽度
-blockSpace |   块与块之间的间距
-blockShape |   块的样式暂时支持四种  none solid stroke underline
+blockNormalColor |  正常状态下的颜色 默认为字体颜色
+blockFocusColor |   待输入且EditText获取了焦点时颜色  默认值为blockNormalColor
+blockErrorColor |   错误状态下颜色  默认值为blockNormalColor
+blockLineWidth |   绘制边框或者下划线的线的宽度 默认1dp
+blockSpace |   块与块之间的间距 默认0
+blockShape |   块的样式暂时支持四种  none solid stroke underline 默认值为none
 
 
 blockShape 属性值 | 属性说明
 :---:|:---:
-none |  什么都不绘制
+none |  什么都不绘制，空白
 solid |   填充色块
 stroke |   绘制边框
 underline |   下划线
@@ -37,10 +37,16 @@ underline |   下划线
 属性名 | 属性说明
 :---:|:---:
 codeTextColor |  文本或者密码圆点颜色
-codeTextSize |   文本尺寸，当 codeInputType 为 text 时生效
-maxCodeLength |   输入的最大长度
-dotRadius |    密码圆点半径，当codeInputType为 password 生效
-codeInputType |   password （密码圆点展示）text 明文展示
+codeTextSize |   文本尺寸，当 codeInputType 为 text 时生效。 默认为12sp
+maxCodeLength |   输入的最大长度 默认为6
+dotRadius |    密码圆点半径，当codeInputType为 password 生效。默认为5dp
+codeInputType |   password （密码圆点展示）text 明文展示。 默认text
+
+codeInputType 属性值 | 属性说明
+:---:|:---:
+none |  什么都不绘制，空白
+text |   明文
+password |   密码圆点展示
 
 ## 效果图
 

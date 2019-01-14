@@ -120,8 +120,13 @@ public class CodeEditText extends EditText {
     private void parseAttrs(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CodeEditText, defStyleAttr, defStyleRes);
         maxCodeLength = typedArray.getInteger(R.styleable.CodeEditText_maxCodeLength, 6);
+        codeTextColor = typedArray.getColor(R.styleable.CodeEditText_codeTextColor, Color.BLACK);
+        codeTextSize = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_codeTextSize, sp2px(12));
+        dotRadius = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_dotRadius, dp2px(5));
+        codeInputType = typedArray.getInteger(R.styleable.CodeEditText_codeInputType, CodeInputType.NONE);
+        textDrawer = createTextDrawer(codeInputType, codeTextColor, codeTextSize, dotRadius);
 
-        blockNormalColor = typedArray.getColor(R.styleable.CodeEditText_blockNormalColor, Color.BLACK);
+        blockNormalColor = typedArray.getColor(R.styleable.CodeEditText_blockNormalColor,codeTextColor);
         blockFocusColor = typedArray.getColor(R.styleable.CodeEditText_blockFocusColor, blockNormalColor);
         blockErrorColor = typedArray.getColor(R.styleable.CodeEditText_blockErrorColor, blockNormalColor);
         blockLineWidth = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_blockLineWidth, dp2px(1));
@@ -129,12 +134,6 @@ public class CodeEditText extends EditText {
         blockSpace = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_blockSpace, 0);
         blockShape = typedArray.getInteger(R.styleable.CodeEditText_blockShape, BlockShape.NONE);
         blockDrawer = createBlockDrawer(blockNormalColor, blockFocusColor, blockErrorColor, blockShape, blockLineWidth, blockCorner);
-
-        codeTextColor = typedArray.getColor(R.styleable.CodeEditText_codeTextColor, Color.BLACK);
-        codeTextSize = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_codeTextSize, sp2px(12));
-        dotRadius = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_dotRadius, dp2px(5));
-        codeInputType = typedArray.getInteger(R.styleable.CodeEditText_codeInputType, CodeInputType.NONE);
-        textDrawer = createTextDrawer(codeInputType, codeTextColor, codeTextSize, dotRadius);
 
         showCursor = typedArray.getBoolean(R.styleable.CodeEditText_showCursor, false);
         cursorDuration = typedArray.getInteger(R.styleable.CodeEditText_cursorDuration, 500);
