@@ -13,13 +13,6 @@
         android:orientation="vertical">
 
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:inputType="number"
-            />
-
-
         <com.lwjfork.code.CodeEditText
             android:layout_width="match_parent"
             android:layout_height="50dp"

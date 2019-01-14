@@ -1,29 +1,68 @@
 apply plugin: 'com.android.library'
-
+def SLVersion = rootProject.ext.supportLibVersion
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
-
-
+        versionName version
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    dexOptions {
+        javaMaxHeapSize "8g"
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0-alpha1'
+    compileOnly "com.android.support:appcompat-v7:$SLVersion"
 }
+
+// 这里改成groupId ， 比如com.android.support
+rootProject.ext.PROJ_GROUP = "com.lwj.fork"
+// 这里改成开发者id ， 比如
+rootProject.ext.DEVELOPER_ID = "lwjfork"
+// 这里改成开发者名字 ， 比如android
+rootProject.ext.DEVELOPER_NAME = "lwjfork"
+// 这里改成开发者邮箱，比如[email]someone@android.com[/email]
+rootProject.ext.DEVELOPER_EMAIL = "lwjfork@gmail.com"
+// 用户名
+rootProject.ext.BINTRAY_USER = "lwjfork"
+// 这里改成库版本 ， 比如22.2.0
+rootProject.ext.PROJ_VERSION = "1.0.0"
+// 这里改成库名字 ， 比如appcompat
+rootProject.ext.PROJ_NAME = "CodeEditText"
+// 这里改成github地址 ， 比如https:github.com/android/appcompat
+rootProject.ext.PROJ_WEBSITEURL = "https://github.com/lwjfork/CodeEditText"
+// 这里改成issue地址 ，
+//比如https:github.com/android/appcompat/issues
+rootProject.ext.PROJ_ISSUEURL = "https://github.com/lwjfork/CodeEditText/issues"
+// 这里改成版本控制地主 ，
+// 比如https:github.com/android/appcompat.git
+rootProject.ext.PROJ_VCSURL = "https://github.com/lwjfork/CodeEditText.git"
+// 这里改成库的描述信息
+rootProject.ext.PROJ_DESCRIPTION = "Password Verify Code"
+// 这里改成库的标示 ， 比如appcompat - v7
+rootProject.ext.PROJ_ARTIFACTID = "CodeEditText"
+
+
+
+apply from: "https://raw.githubusercontent.com/lwjfork/scriptlib/master/gradle/bintray.gradle"

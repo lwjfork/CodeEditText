@@ -1,6 +1,15 @@
 # CodeEditText
 验证码，密码输入框，文本支持明文和密码及透明三种形式展示，背景支持下划线，填充色块，边框，透明四种
 
+
+## jcenter 引入
+
+```
+  implementation 'com.lwj.fork:CodeEditText:1.0.0'
+
+```
+
+
 ## 原理
 >> 继承EditText，测量宽高后，根据每块间距、EditText的宽度以及可输入最大长度计算出每块区域的left top right bottom
 
@@ -47,6 +56,12 @@ codeInputType 属性值 | 属性说明
 none |  什么都不绘制，空白
 text |   明文
 password |   密码圆点展示
+
+## 代码混淆
+
+```
+  -keep class com.lwjfork.code.** { *;}
+```
 
 ## 效果图
 

@@ -359,13 +359,13 @@ public class CodeEditText extends EditText {
         void onCodeChanged(CharSequence changeText);
 
         /**
-         * 输入完成
+         * input complete
          */
         void onInputCompleted(CharSequence text);
     }
 
     /**
-     * 监听文本变化，并更改UI
+     *  update UI
      *
      * @param text
      * @param start
@@ -411,7 +411,7 @@ public class CodeEditText extends EditText {
     }
 
     /**
-     * 销毁Bitmap
+     *  bitmap recycle
      *
      * @param bitmap
      */
@@ -422,7 +422,7 @@ public class CodeEditText extends EditText {
     }
 
     /**
-     * 清空所有数据
+     * clear Text
      */
     public void clearContent() {
         getEditableText().clear();
@@ -579,7 +579,6 @@ public class CodeEditText extends EditText {
     }
 
     /**
-     * @return
      * @see BlockShape
      */
     public int getBlockShape() {
@@ -612,7 +611,6 @@ public class CodeEditText extends EditText {
     }
 
     /**
-     * @return
      * @see CodeInputType
      */
     public int getCodeInputType() {
@@ -620,7 +618,6 @@ public class CodeEditText extends EditText {
     }
 
     /**
-     * @return
      * @see CodeInputType
      */
     public void setCodeInputType(int codeInputType) {
