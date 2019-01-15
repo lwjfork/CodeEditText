@@ -14,167 +14,14 @@
 
 
         <com.lwjfork.code.CodeEditText
+            android:id="@+id/et_test"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:layout_marginTop="20dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:maxLength="6"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:blockErrorColor="@android:color/holo_red_light"
-            app:blockFocusColor="@android:color/holo_blue_bright"
-            app:blockLineWidth="1dp"
-            app:blockNormalColor="@android:color/black"
-            app:blockShape="underline"
-            app:blockSpace="15dp"
-            app:codeInputType="text"
-            app:codeTextColor="@android:color/black"
-            app:codeTextSize="30sp"
-            app:cursorWidth="4dp"
-            app:maxCodeLength="6"
-            app:showCursor="true"
-            tools:text="111"
             android:inputType="number"
-            />
-
-
-        <com.lwjfork.code.CodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:maxLength="6"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:blockErrorColor="@android:color/holo_red_light"
-            app:blockFocusColor="@android:color/holo_blue_bright"
-            app:blockLineWidth="1dp"
-            app:blockNormalColor="@android:color/black"
-            app:blockShape="underline"
-            app:blockSpace="15dp"
-            app:codeInputType="password"
-            app:codeTextColor="@android:color/black"
-            app:codeTextSize="30sp"
-            app:cursorWidth="4dp"
-            app:maxCodeLength="6"
-            app:showCursor="true"
-            tools:text="111" />
-
-        <com.lwjfork.code.CodeEditText
-            android:id="@+id/edit_pwd_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:maxLength="6"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:blockCorner="5dp"
-            app:blockErrorColor="@android:color/holo_red_light"
-            app:blockFocusColor="@android:color/holo_blue_bright"
-            app:blockLineWidth="3dp"
-            app:blockNormalColor="@android:color/black"
-            app:blockShape="stroke"
-            app:blockSpace="15dp"
-            app:codeInputType="password"
-            app:codeTextColor="@android:color/black"
-            app:codeTextSize="30sp"
-            app:cursorWidth="4dp"
-            app:maxCodeLength="6"
-            app:showCursor="true"
-            tools:text="111" />
-
-        <com.lwjfork.code.CodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:maxLength="6"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:blockCorner="5dp"
-            app:blockErrorColor="@android:color/holo_red_light"
-            app:blockFocusColor="@android:color/holo_blue_bright"
-            app:blockLineWidth="3dp"
-            app:blockNormalColor="@android:color/black"
-            app:blockShape="stroke"
-            app:blockSpace="15dp"
-            app:codeInputType="text"
-            app:codeTextColor="@android:color/black"
-            app:codeTextSize="30sp"
-            app:cursorWidth="4dp"
-            app:maxCodeLength="6"
-            app:showCursor="true"
-            tools:text="111" />
-
-
-        <com.lwjfork.code.CodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:maxLength="6"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:blockCorner="5dp"
-            app:blockErrorColor="@android:color/holo_red_light"
-            app:blockFocusColor="@android:color/holo_blue_bright"
-            app:blockLineWidth="3dp"
-            app:blockNormalColor="@android:color/black"
-            app:blockShape="solid"
-            app:blockSpace="15dp"
-            app:codeInputType="password"
-            app:codeTextColor="@android:color/white"
-            app:codeTextSize="30sp"
-            app:cursorWidth="4dp"
-            app:dotRadius="8dp"
-            app:maxCodeLength="6"
-            app:showCursor="true"
-            tools:text="111" />
-
-
-        <com.lwjfork.code.CodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:maxLength="6"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:blockCorner="5dp"
-            app:blockErrorColor="@android:color/holo_red_light"
-            app:blockFocusColor="@android:color/holo_blue_bright"
-            app:blockLineWidth="3dp"
-            app:blockNormalColor="@android:color/black"
-            app:blockShape="solid"
-            app:blockSpace="15dp"
-            app:codeInputType="text"
-            app:codeTextColor="@android:color/white"
-            app:codeTextSize="30sp"
-            app:cursorWidth="4dp"
-            app:maxCodeLength="6"
-            app:showCursor="true"
-            tools:text="111" />
-
-        <com.lwjfork.code.CodeEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:maxLength="6"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -193,29 +40,204 @@
             tools:text="111" />
 
 
-        <com.lwjfork.code.CodeEditText
+        <!--<com.lwjfork.code.CodeEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:maxLength="6"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--app:blockErrorColor="@android:color/holo_red_light"-->
+        <!--app:blockFocusColor="@android:color/holo_blue_bright"-->
+        <!--app:blockLineWidth="1dp"-->
+        <!--app:blockNormalColor="@android:color/black"-->
+        <!--app:blockShape="underline"-->
+        <!--app:blockSpace="15dp"-->
+        <!--app:codeInputType="password"-->
+        <!--app:codeTextColor="@android:color/black"-->
+        <!--app:codeTextSize="30sp"-->
+        <!--app:cursorWidth="4dp"-->
+        <!--app:maxCodeLength="6"-->
+        <!--app:showCursor="true"-->
+        <!--tools:text="111" />-->
+
+        <!--<com.lwjfork.code.CodeEditText-->
+        <!--android:id="@+id/edit_pwd_stroke"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:maxLength="6"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--app:blockCorner="5dp"-->
+        <!--app:blockErrorColor="@android:color/holo_red_light"-->
+        <!--app:blockFocusColor="@android:color/holo_blue_bright"-->
+        <!--app:blockLineWidth="3dp"-->
+        <!--app:blockNormalColor="@android:color/black"-->
+        <!--app:blockShape="stroke"-->
+        <!--app:blockSpace="15dp"-->
+        <!--app:codeInputType="password"-->
+        <!--app:codeTextColor="@android:color/black"-->
+        <!--app:codeTextSize="30sp"-->
+        <!--app:cursorWidth="4dp"-->
+        <!--app:maxCodeLength="6"-->
+        <!--app:showCursor="true"-->
+        <!--tools:text="111" />-->
+
+        <!--<com.lwjfork.code.CodeEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:maxLength="6"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--app:blockCorner="5dp"-->
+        <!--app:blockErrorColor="@android:color/holo_red_light"-->
+        <!--app:blockFocusColor="@android:color/holo_blue_bright"-->
+        <!--app:blockLineWidth="3dp"-->
+        <!--app:blockNormalColor="@android:color/black"-->
+        <!--app:blockShape="stroke"-->
+        <!--app:blockSpace="15dp"-->
+        <!--app:codeInputType="text"-->
+        <!--app:codeTextColor="@android:color/black"-->
+        <!--app:codeTextSize="30sp"-->
+        <!--app:cursorWidth="4dp"-->
+        <!--app:maxCodeLength="6"-->
+        <!--app:showCursor="true"-->
+        <!--tools:text="111" />-->
+
+
+        <!--<com.lwjfork.code.CodeEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:maxLength="6"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--app:blockCorner="5dp"-->
+        <!--app:blockErrorColor="@android:color/holo_red_light"-->
+        <!--app:blockFocusColor="@android:color/holo_blue_bright"-->
+        <!--app:blockLineWidth="3dp"-->
+        <!--app:blockNormalColor="@android:color/black"-->
+        <!--app:blockShape="solid"-->
+        <!--app:blockSpace="15dp"-->
+        <!--app:codeInputType="password"-->
+        <!--app:codeTextColor="@android:color/white"-->
+        <!--app:codeTextSize="30sp"-->
+        <!--app:cursorWidth="4dp"-->
+        <!--app:dotRadius="8dp"-->
+        <!--app:maxCodeLength="6"-->
+        <!--app:showCursor="true"-->
+        <!--tools:text="111" />-->
+
+
+        <!--<com.lwjfork.code.CodeEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:maxLength="6"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--app:blockCorner="5dp"-->
+        <!--app:blockErrorColor="@android:color/holo_red_light"-->
+        <!--app:blockFocusColor="@android:color/holo_blue_bright"-->
+        <!--app:blockLineWidth="3dp"-->
+        <!--app:blockNormalColor="@android:color/black"-->
+        <!--app:blockShape="solid"-->
+        <!--app:blockSpace="15dp"-->
+        <!--app:codeInputType="text"-->
+        <!--app:codeTextColor="@android:color/white"-->
+        <!--app:codeTextSize="30sp"-->
+        <!--app:cursorWidth="4dp"-->
+        <!--app:maxCodeLength="6"-->
+        <!--app:showCursor="true"-->
+        <!--tools:text="111" />-->
+
+        <!--<com.lwjfork.code.CodeEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:maxLength="6"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--app:blockErrorColor="@android:color/holo_red_light"-->
+        <!--app:blockFocusColor="@android:color/holo_blue_bright"-->
+        <!--app:blockLineWidth="1dp"-->
+        <!--app:blockNormalColor="@android:color/black"-->
+        <!--app:blockShape="underline"-->
+        <!--app:blockSpace="15dp"-->
+        <!--app:codeInputType="text"-->
+        <!--app:codeTextColor="@android:color/black"-->
+        <!--app:codeTextSize="30sp"-->
+        <!--app:cursorWidth="4dp"-->
+        <!--app:maxCodeLength="6"-->
+        <!--app:showCursor="true"-->
+        <!--tools:text="111" />-->
+
+
+        <!--<com.lwjfork.code.CodeEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:maxLength="6"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--app:blockErrorColor="@android:color/holo_red_light"-->
+        <!--app:blockFocusColor="@android:color/holo_blue_bright"-->
+        <!--app:blockLineWidth="1dp"-->
+        <!--app:blockNormalColor="@android:color/black"-->
+        <!--app:blockShape="underline"-->
+        <!--app:blockSpace="15dp"-->
+        <!--app:codeInputType="password"-->
+        <!--app:codeTextColor="@android:color/black"-->
+        <!--app:codeTextSize="30sp"-->
+        <!--app:cursorWidth="4dp"-->
+        <!--app:maxCodeLength="6"-->
+        <!--app:showCursor="true"-->
+        <!--tools:text="111" />-->
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:maxLength="6"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            app:blockErrorColor="@android:color/holo_red_light"
-            app:blockFocusColor="@android:color/holo_blue_bright"
-            app:blockLineWidth="1dp"
-            app:blockNormalColor="@android:color/black"
-            app:blockShape="underline"
-            app:blockSpace="15dp"
-            app:codeInputType="password"
-            app:codeTextColor="@android:color/black"
-            app:codeTextSize="30sp"
-            app:cursorWidth="4dp"
-            app:maxCodeLength="6"
-            app:showCursor="true"
-            tools:text="111" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="添加字符" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="删除字符" />
+        </LinearLayout>
 
     </LinearLayout>
 

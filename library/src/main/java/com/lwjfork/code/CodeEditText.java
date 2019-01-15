@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Px;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -341,6 +342,26 @@ public class CodeEditText extends EditText {
     }
 
 
+    /***
+     * 删除单个字符
+     */
+    public void delete() {
+        Editable editable = getText();
+        if (editable.length() > 0) {
+            editable.delete(editable.length() - 1, editable.length());
+        }
+    }
+
+    /***
+     * 添加一个字符
+     * @param c
+     */
+    public void addChar(char c) {
+        Editable editable = getText();
+        editable.append(c);
+    }
+
+
     OnTextChangedListener onTextChangedListener;
 
     public void setOnTextChangedListener(OnTextChangedListener onTextChangedListener) {
@@ -365,7 +386,7 @@ public class CodeEditText extends EditText {
     }
 
     /**
-     *  update UI
+     * update UI
      *
      * @param text
      * @param start
@@ -411,7 +432,7 @@ public class CodeEditText extends EditText {
     }
 
     /**
-     *  bitmap recycle
+     * bitmap recycle
      *
      * @param bitmap
      */

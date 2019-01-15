@@ -47,7 +47,7 @@ rootProject.ext.DEVELOPER_EMAIL = "lwjfork@gmail.com"
 // 用户名
 rootProject.ext.BINTRAY_USER = "lwjfork"
 // 这里改成库版本 ， 比如22.2.0
-rootProject.ext.PROJ_VERSION = "1.0.0"
+rootProject.ext.PROJ_VERSION = "1.0.1"
 // 这里改成库名字 ， 比如appcompat
 rootProject.ext.PROJ_NAME = "CodeEditText"
 // 这里改成github地址 ， 比如https:github.com/android/appcompat
@@ -63,7 +63,7 @@ rootProject.ext.PROJ_DESCRIPTION = "Password Verify Code"
 // 这里改成库的标示 ， 比如appcompat - v7
 rootProject.ext.PROJ_ARTIFACTID = "CodeEditText"
 // 发布时必须有值，建议写到  local.properties 里
-rootProject.ext.BINTRAY_APIKEY = "" //
+//rootProject.ext.BINTRAY_APIKEY = "" //
 
 
 apply from: "https://raw.githubusercontent.com/lwjfork/scriptlib/master/gradle/bintray.gradle"
