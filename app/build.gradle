@@ -30,6 +30,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:$SLVersion"
-    implementation 'com.lwj.fork:CodeEditText:1.0.1'
-//    implementation project(':CodeEditText')
+//    implementation 'com.lwj.fork:CodeEditText:1.0.1'
+    implementation project(':CodeEditText')
 }
