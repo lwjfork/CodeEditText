@@ -62,7 +62,8 @@ rootProject.ext.PROJ_VCSURL = "https://github.com/lwjfork/CodeEditText.git"
 rootProject.ext.PROJ_DESCRIPTION = "Password Verify Code"
 // 这里改成库的标示 ， 比如appcompat - v7
 rootProject.ext.PROJ_ARTIFACTID = "CodeEditText"
-
+// 发布时必须有值，建议写到  local.properties 里
+rootProject.ext.BINTRAY_APIKEY = "" //
 
 
 apply from: "https://raw.githubusercontent.com/lwjfork/scriptlib/master/gradle/bintray.gradle"
