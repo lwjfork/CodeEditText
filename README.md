@@ -5,7 +5,7 @@
 ## jcenter 引入
 
 ```
-  implementation 'com.lwj.fork:CodeEditText:1.0.0'
+  implementation 'com.lwj.fork:CodeEditText:1.0.2'
 
 ```
 
