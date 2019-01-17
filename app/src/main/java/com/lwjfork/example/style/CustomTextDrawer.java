@@ -1,19 +1,20 @@
-package com.lwjfork.code.text;
+package com.lwjfork.example.style;
 
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.lwjfork.code.style.CodeInputType;
+import com.lwjfork.code.text.BaseTextDrawer;
 
 /**
- * Created by lwj on 2019/1/12.
+ * Created by lwj on 2019/1/17.
  * lwjfork@gmail.com
- * 明文绘制
  */
-public class TextDrawer extends BaseTextDrawer {
+public class CustomTextDrawer extends BaseTextDrawer {
+
     private int textBaseLineY;
-    public TextDrawer(@CodeInputType int codeInputType, int codeTextColor, int codeTextSize, int dotRadius) {
-        super(codeInputType, codeTextColor, codeTextSize, dotRadius);
+
+    public CustomTextDrawer() {
+        super();
     }
 
     @Override
@@ -22,6 +23,7 @@ public class TextDrawer extends BaseTextDrawer {
         float top = fontMetrics.top;// 基线到字体上边框的距离
         float bottom = fontMetrics.bottom;// 基线到字体下边框的距离
         textBaseLineY = (int) (rect.centerY() - top / 2 - bottom / 2);
-        canvas.drawText(c + "", rect.centerX(), textBaseLineY, textPaint);
+        canvas.drawText("X", rect.centerX(), textBaseLineY, textPaint);
+
     }
 }

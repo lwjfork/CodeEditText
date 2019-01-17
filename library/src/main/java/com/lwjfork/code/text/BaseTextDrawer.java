@@ -4,8 +4,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.ColorInt;
 
-import com.lwjfork.code.CodeEditText;
 import com.lwjfork.code.base.BaseDrawer;
+import com.lwjfork.code.style.CodeInputType;
 
 
 /**
@@ -14,6 +14,7 @@ import com.lwjfork.code.base.BaseDrawer;
  */
 public abstract class BaseTextDrawer extends BaseDrawer {
 
+    @CodeInputType
     protected int codeInputType; // 显示样式 支持明文和密码两种，密码时画圆点
     @ColorInt
     protected int codeTextColor;// 显示圆点、明文时的字体颜色
@@ -25,9 +26,10 @@ public abstract class BaseTextDrawer extends BaseDrawer {
     protected String content = new String();
 
     public BaseTextDrawer() {
+        initPaint();
     }
 
-    public BaseTextDrawer(int codeInputType, int codeTextColor, int codeTextSize, int dotRadius) {
+    public BaseTextDrawer(@CodeInputType int codeInputType, int codeTextColor, int codeTextSize, int dotRadius) {
         this.codeInputType = codeInputType;
         this.codeTextColor = codeTextColor;
         this.codeTextSize = codeTextSize;
@@ -73,11 +75,12 @@ public abstract class BaseTextDrawer extends BaseDrawer {
     }
 
 
+    @CodeInputType
     public int getCodeInputType() {
         return codeInputType;
     }
 
-    public void setCodeInputType(int codeInputType) {
+    public void setCodeInputType(@CodeInputType int codeInputType) {
         this.codeInputType = codeInputType;
     }
 
@@ -98,7 +101,7 @@ public abstract class BaseTextDrawer extends BaseDrawer {
     public void setCodeTextSize(int codeTextSize) {
         this.codeTextSize = codeTextSize;
         textPaint.setTextSize(codeTextSize);
-        if (codeInputType == CodeEditText.CodeInputType.TEXT) {
+        if (codeInputType == CodeInputType.TEXT) {
             drawCanvas();
         }
     }
@@ -109,7 +112,7 @@ public abstract class BaseTextDrawer extends BaseDrawer {
 
     public void setDotRadius(int dotRadius) {
         this.dotRadius = dotRadius;
-        if (codeInputType == CodeEditText.CodeInputType.PASSWORD) {
+        if (codeInputType == CodeInputType.PASSWORD) {
             drawCanvas();
         }
     }

@@ -10,17 +10,17 @@ import android.graphics.RectF;
  */
 public class UnderlineBlockDrawer extends BaseBlockDrawer {
 
+    public UnderlineBlockDrawer() {
+        super();
+    }
 
     public UnderlineBlockDrawer(int blockNormalColor, int blockFocusedColor, int blockErrorColor, int blockShape, int blockLineWidth, int blockCorner) {
         super(blockNormalColor, blockFocusedColor, blockErrorColor, blockShape, blockLineWidth, blockCorner);
-        initPaint();
     }
 
     protected void initPaint() {
-        blockPaint = new Paint();
+        super.initPaint();
         blockPaint.setStyle(Paint.Style.FILL);
-        blockPaint.setAntiAlias(true);
-        blockPaint.setColor(blockNormalColor);
         blockPaint.setStrokeWidth(blockLineWidth);
     }
 

@@ -5,8 +5,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.ColorInt;
 
-import com.lwjfork.code.CodeEditText;
 import com.lwjfork.code.base.BaseDrawer;
+import com.lwjfork.code.style.BlockShape;
 
 
 /**
@@ -21,19 +21,32 @@ public abstract class BaseBlockDrawer extends BaseDrawer {
     protected int blockFocusColor;  // 获取焦点时边框、填充、下划线颜色
     @ColorInt
     protected int blockErrorColor; // 输入错误时边框、填充、下划线颜色
+    @BlockShape
     protected int blockShape;
     protected int blockLineWidth; //  正常边框、下划线宽度
     protected boolean isErrorState;
     protected Paint blockPaint;
     protected int blockCorner; //  画边框及填充色的圆角
 
-    public BaseBlockDrawer(int blockNormalColor, int blockFocusColor, int blockErrorColor, int blockShape, int blockLineWidth, int blockCorner) {
+
+    public BaseBlockDrawer() {
+        initPaint();
+    }
+
+    public BaseBlockDrawer(int blockNormalColor, int blockFocusColor, int blockErrorColor, @BlockShape int blockShape, int blockLineWidth, int blockCorner) {
         this.blockNormalColor = blockNormalColor;
         this.blockFocusColor = blockFocusColor;
         this.blockErrorColor = blockErrorColor;
         this.blockShape = blockShape;
         this.blockLineWidth = blockLineWidth;
         this.blockCorner = blockCorner;
+        initPaint();
+    }
+
+    protected void initPaint() {
+        blockPaint = new Paint();
+        blockPaint.setAntiAlias(true);
+        blockPaint.setColor(blockNormalColor);
     }
 
 
@@ -74,11 +87,12 @@ public abstract class BaseBlockDrawer extends BaseDrawer {
         return blockNormalColor;
     }
 
+    @BlockShape
     public int getBlockShape() {
         return blockShape;
     }
 
-    public void seBlockShape(int blockShape) {
+    public void seBlockShape(@BlockShape int blockShape) {
         this.blockShape = blockShape;
         drawCanvas();
     }
@@ -89,7 +103,7 @@ public abstract class BaseBlockDrawer extends BaseDrawer {
 
     public void setBlockLineWidth(int blockLineWidth) {
         this.blockLineWidth = blockLineWidth;
-        if (blockShape == CodeEditText.BlockShape.STROKE || blockShape == CodeEditText.BlockShape.UNDERLINE) {
+        if (blockShape == BlockShape.STROKE || blockShape == BlockShape.UNDERLINE) {
             blockPaint.setStrokeWidth(blockLineWidth);
             drawCanvas();
         }
@@ -124,7 +138,7 @@ public abstract class BaseBlockDrawer extends BaseDrawer {
 
     public void setBlockCorner(int blockCorner) {
         this.blockCorner = blockCorner;
-        if (blockShape == CodeEditText.BlockShape.STROKE || blockShape == CodeEditText.BlockShape.SOLID) {
+        if (blockShape == BlockShape.STROKE || blockShape == BlockShape.SOLID) {
             drawCanvas();
         }
     }
@@ -138,7 +152,7 @@ public abstract class BaseBlockDrawer extends BaseDrawer {
     protected RectF fixPosition(int i) {
         if (i >= 0 && i < blockRects.size()) {
             Rect rect = blockRects.get(i);
-            if (blockShape == CodeEditText.BlockShape.UNDERLINE) {
+            if (blockShape == BlockShape.UNDERLINE) {
                 return new RectF(rect);
             }
             int left = rect.left;

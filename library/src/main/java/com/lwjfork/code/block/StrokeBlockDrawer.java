@@ -10,11 +10,16 @@ import android.graphics.Paint;
 public class StrokeBlockDrawer extends SolidBlockDrawer {
 
 
-    public StrokeBlockDrawer(int blockNormalColor, int blockFocusedColor, int blockErrorColor, int blockShape, int blockLineWidth, int blockCorner) {
-        super(blockNormalColor, blockFocusedColor, blockErrorColor, blockShape, blockLineWidth, blockCorner);
-        initPaint();
+    public StrokeBlockDrawer() {
+        super();
     }
 
+
+    public StrokeBlockDrawer(int blockNormalColor, int blockFocusedColor, int blockErrorColor, int blockShape, int blockLineWidth, int blockCorner) {
+        super(blockNormalColor, blockFocusedColor, blockErrorColor, blockShape, blockLineWidth, blockCorner);
+    }
+
+    @Override
     protected void initPaint() {
         super.initPaint();
         blockPaint.setStyle(Paint.Style.STROKE);

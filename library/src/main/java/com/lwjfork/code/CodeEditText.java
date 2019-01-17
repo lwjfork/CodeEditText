@@ -26,6 +26,8 @@ import com.lwjfork.code.block.SolidBlockDrawer;
 import com.lwjfork.code.block.StrokeBlockDrawer;
 import com.lwjfork.code.block.UnderlineBlockDrawer;
 import com.lwjfork.code.cusor.CursorDrawer;
+import com.lwjfork.code.style.BlockShape;
+import com.lwjfork.code.style.CodeInputType;
 import com.lwjfork.code.text.BaseTextDrawer;
 import com.lwjfork.code.text.NoneTextDrawer;
 import com.lwjfork.code.text.PasswordTextDrawer;
@@ -47,8 +49,10 @@ public class CodeEditText extends EditText {
     protected int blockFocusColor;  // 获取焦点时边框、填充、下划线颜色
     @ColorInt
     protected int blockErrorColor; // 输入错误时边框、填充、下划线颜色
+    @BlockShape
     protected int blockShape;
     protected int blockLineWidth; //  正常边框、下划线宽度
+    @CodeInputType
     protected int codeInputType; // 显示样式 支持明文和密码两种，密码时画圆点
     @ColorInt
     protected int codeTextColor;// 显示圆点、明文时的字体颜色
@@ -74,19 +78,6 @@ public class CodeEditText extends EditText {
 
     protected Context mContext;
     private DisplayMetrics metrics;
-
-    public static class BlockShape {
-        public static final int STROKE = 1; // 边框
-        public static final int SOLID = 2;  // 填充
-        public static final int UNDERLINE = 3; // 下划线
-        public static final int NONE = -1;  // 什么都不画
-    }
-
-    public static class CodeInputType {
-        public static final int PASSWORD = 1;  // 密码样式
-        public static final int TEXT = 2;  // 明文
-        public static final int NONE = -1; // 什么都不画
-    }
 
 
     public CodeEditText(Context context) {
@@ -168,7 +159,7 @@ public class CodeEditText extends EditText {
      * @param blockCorner
      * @return
      */
-    private BaseBlockDrawer createBlockDrawer(int blockNormalColor, int blockFocusColor, int blockErrorColor, int blockShape, int blockLineWidth, int blockCorner) {
+    private BaseBlockDrawer createBlockDrawer(int blockNormalColor, int blockFocusColor, int blockErrorColor, @BlockShape int blockShape, int blockLineWidth, int blockCorner) {
         switch (blockShape) {
             case BlockShape.SOLID:
                 return new SolidBlockDrawer(blockNormalColor, blockFocusColor, blockErrorColor, blockShape, blockLineWidth, blockCorner);
@@ -190,7 +181,7 @@ public class CodeEditText extends EditText {
      * @param dotRadius
      * @return
      */
-    private BaseTextDrawer createTextDrawer(int codeInputType, int codeTextColor, int codeTextSize, int dotRadius) {
+    private BaseTextDrawer createTextDrawer(@CodeInputType int codeInputType, int codeTextColor, int codeTextSize, int dotRadius) {
         switch (codeInputType) {
             case CodeInputType.TEXT:
                 return new TextDrawer(codeInputType, codeTextColor, codeTextSize, dotRadius);
@@ -359,6 +350,15 @@ public class CodeEditText extends EditText {
     public void addChar(char c) {
         Editable editable = getText();
         editable.append(c);
+    }
+
+    /***
+     * 添加多个字符
+     * @param sequence
+     */
+    public void addCharSequence(CharSequence sequence) {
+        Editable editable = getText();
+        editable.append(sequence);
     }
 
 
@@ -602,25 +602,30 @@ public class CodeEditText extends EditText {
     /**
      * @see BlockShape
      */
+    @BlockShape
     public int getBlockShape() {
         return blockDrawer.getBlockShape();
     }
 
-    /**
-     * @param blockShape
-     * @see BlockShape
-     */
-    public void setCodeShape(int blockShape) {
-        if (blockShape == blockDrawer.getBlockShape()) {
+
+    // 可以自定义BlockDrawer
+    public void setBlockShape(BaseBlockDrawer newBlockDrawer) {
+        if (newBlockDrawer == null) {
             return;
         }
-        BaseBlockDrawer newBlockDrawer = createBlockDrawer(blockNormalColor, blockFocusColor, blockErrorColor, blockShape, blockLineWidth, blockCorner);
         if (blockDrawer != null) {
-            newBlockDrawer.setCanvas(blockDrawer.getCanvas());
             newBlockDrawer.setFocused(blockDrawer.isFocused());
             newBlockDrawer.setBlockRects(blockDrawer.getBlockRects());
             newBlockDrawer.setErrorState(blockDrawer.isErrorState());
             newBlockDrawer.setCurrentBlockIndex(blockDrawer.getCurrentBlockIndex());
+
+            newBlockDrawer.setBlockCorner(blockDrawer.getBlockCorner());
+            newBlockDrawer.setBlockErrorColor(blockDrawer.getBlockErrorColor());
+            newBlockDrawer.setBlockFocusColor(blockDrawer.getBlockFocusColor());
+            newBlockDrawer.setBlockNormalColor(blockDrawer.getBlockNormalColor());
+            newBlockDrawer.setBlockLineWidth(blockDrawer.getBlockLineWidth());
+
+            newBlockDrawer.setCanvas(blockDrawer.getCanvas());
             blockDrawer = newBlockDrawer;
             invalidate();
         } else {
@@ -632,8 +637,21 @@ public class CodeEditText extends EditText {
     }
 
     /**
+     * @param blockShape
+     * @see BlockShape
+     */
+    public void setBlockShape(@BlockShape int blockShape) {
+        if (blockShape == blockDrawer.getBlockShape()) {
+            return;
+        }
+        BaseBlockDrawer newBlockDrawer = createBlockDrawer(blockNormalColor, blockFocusColor, blockErrorColor, blockShape, blockLineWidth, blockCorner);
+        setBlockShape(newBlockDrawer);
+    }
+
+    /**
      * @see CodeInputType
      */
+    @CodeInputType
     public int getCodeInputType() {
         return textDrawer.getCodeInputType();
     }
@@ -641,18 +659,31 @@ public class CodeEditText extends EditText {
     /**
      * @see CodeInputType
      */
-    public void setCodeInputType(int codeInputType) {
+    public void setCodeInputType(@CodeInputType int codeInputType) {
         if (codeInputType == textDrawer.getCodeInputType()) {
             return;
         }
 
         BaseTextDrawer newTextDrawer = createTextDrawer(codeInputType, codeTextColor, codeTextSize, dotRadius);
+        setCodeInputType(newTextDrawer);
+    }
+
+    public void setCodeInputType(BaseTextDrawer newTextDrawer) {
+        if (newTextDrawer == null) {
+            return;
+        }
         if (textDrawer != null) {
-            newTextDrawer.setCanvas(textDrawer.getCanvas());
             newTextDrawer.setFocused(textDrawer.isFocused());
             newTextDrawer.setBlockRects(textDrawer.getBlockRects());
             newTextDrawer.setCurrentBlockIndex(textDrawer.getCurrentBlockIndex());
             newTextDrawer.setContent(textDrawer.getContent());
+
+            newTextDrawer.setCodeTextSize(textDrawer.getCodeTextSize());
+            newTextDrawer.setCodeTextColor(textDrawer.getCodeTextColor());
+            newTextDrawer.setDotRadius(textDrawer.getDotRadius());
+
+
+            newTextDrawer.setCanvas(textDrawer.getCanvas());
             textDrawer = newTextDrawer;
             invalidate();
         } else {
@@ -661,6 +692,7 @@ public class CodeEditText extends EditText {
             requestLayout();
         }
     }
+
 
     public int dp2px(float dp) {
         float density = metrics.density;
