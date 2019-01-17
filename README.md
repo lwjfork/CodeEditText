@@ -70,8 +70,8 @@ password |   密码圆点展示
 <img src='https://github.com/lwjfork/CodeEditText/blob/master/example.jpg' height='600'/>
 
 ## Change list
-##1.0.1 
+## 1.0.1 
 1. 添加 delete 和 addChar 方法 方便自定义键盘
 
-##1.0.2
+## 1.0.2
 2. 支持自定义样式，具体参考demo里的 CustomStyleActivity
