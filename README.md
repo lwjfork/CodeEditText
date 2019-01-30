@@ -74,4 +74,5 @@ password |   密码圆点展示
 1. 添加 delete 和 addChar 方法 方便自定义键盘
 
 ## 1.0.2
-2. 支持自定义样式，具体参考demo里的 CustomStyleActivity
+1. 支持自定义样式，具体参考demo里的 CustomStyleActivity
+2. 添加addCharSequence 方法
