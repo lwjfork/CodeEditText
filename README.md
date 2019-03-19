@@ -5,7 +5,7 @@
 ## jcenter 引入
 
 ```
-  implementation 'com.github.lwjfork:CodeEditText:1.0.3'
+  implementation 'com.github.lwjfork:CodeEditText:1.0.4'
 
 ```
 
@@ -70,9 +70,16 @@ password |   密码圆点展示
 <img src='https://github.com/lwjfork/CodeEditText/blob/master/example.jpg' height='600'/>
 
 ## Change list
-## 1.0.1 
-1. 添加 delete 和 addChar 方法 方便自定义键盘
+
+## 1.0.4
+1. fix 当code长度超过6位时，绘制错误
+
 
 ## 1.0.2
 1. 支持自定义样式，具体参考demo里的 CustomStyleActivity
 2. 添加addCharSequence 方法
+
+## 1.0.1 
+1. 添加 delete 和 addChar 方法 方便自定义键盘
+
+
