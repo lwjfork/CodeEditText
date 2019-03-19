@@ -35,7 +35,7 @@
             app:codeTextColor="@android:color/black"
             app:codeTextSize="30sp"
             app:cursorWidth="4dp"
-            app:maxCodeLength="6"
+            app:maxCodeLength="12"
             app:showCursor="true"
             tools:text="111" />
 
