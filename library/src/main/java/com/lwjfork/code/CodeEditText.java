@@ -65,6 +65,7 @@ public class CodeEditText extends EditText {
     private boolean showCursor;// 是否显示光标
     private int cursorDuration;// 光标闪烁间隔
     private int cursorWidth;// 光标宽度
+    private int cursorHeight;// 光标高度
     @ColorInt
     private int cursorColor;// 光标颜色 没有设置时默认字体颜色
 
@@ -129,9 +130,10 @@ public class CodeEditText extends EditText {
 
         showCursor = typedArray.getBoolean(R.styleable.CodeEditText_showCursor, false);
         cursorDuration = typedArray.getInteger(R.styleable.CodeEditText_cursorDuration, 500);
-        cursorWidth = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_blockCorner, dp2px(1));
+        cursorWidth = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_cursorWidth, dp2px(1));
+        cursorHeight = typedArray.getDimensionPixelSize(R.styleable.CodeEditText_cursorHeight, (int) (codeTextSize * 1.25f));
         cursorColor = typedArray.getColor(R.styleable.CodeEditText_cursorColor, blockNormalColor);
-        cursorDrawer = createCursorDrawer(showCursor, cursorDuration, cursorWidth, cursorColor);
+        cursorDrawer = createCursorDrawer(showCursor, cursorDuration, cursorWidth, cursorHeight, cursorColor);
         typedArray.recycle();
     }
 
@@ -144,8 +146,8 @@ public class CodeEditText extends EditText {
      * @param cursorColor
      * @return
      */
-    private CursorDrawer createCursorDrawer(boolean showCursor, int cursorDuration, int cursorWidth, int cursorColor) {
-        return new CursorDrawer(showCursor, cursorDuration, cursorWidth, cursorColor);
+    private CursorDrawer createCursorDrawer(boolean showCursor, int cursorDuration, int cursorWidth, int cursorHeight, int cursorColor) {
+        return new CursorDrawer(showCursor, cursorDuration, cursorWidth, cursorHeight, cursorColor);
     }
 
     /**

@@ -48,6 +48,8 @@
         <attr name="cursorDuration" format="integer" />
         <!--光标宽度-->
         <attr name="cursorWidth" format="dimension" />
+        <!--光标高度-->
+        <attr name="cursorHeight" format="dimension" />
         <!--光标颜色 没有设置时默认取 codeTextColor 颜色-->
         <attr name="cursorColor" format="color|reference" />
     </declare-styleable>

@@ -16,15 +16,17 @@ public class CursorDrawer extends BaseDrawer {
     private boolean showCursor;// 是否显示光标
     private int cursorDuration;// 光标闪烁间隔
     private int cursorWidth;// 光标宽度
+    private int cursorHeight;// 光标高度
     @ColorInt
     private int cursorColor;// 光标颜色 没有设置时默认黑色
     private Paint cursorPaint;
 
-    public CursorDrawer(boolean showCursor, int cursorDuration, int cursorWidth, int cursorColor) {
+    public CursorDrawer(boolean showCursor, int cursorDuration, int cursorWidth, int cursorHeight,int cursorColor) {
         this.showCursor = showCursor;
         this.cursorDuration = cursorDuration;
         this.cursorWidth = cursorWidth;
         this.cursorColor = cursorColor;
+        this.cursorHeight = cursorHeight;
         iniPaint();
     }
 
