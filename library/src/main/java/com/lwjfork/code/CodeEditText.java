@@ -224,7 +224,7 @@ public class CodeEditText extends EditText {
         int startY = 0;
         int endX = 0;
         int endY = 0;
-        int blockWidth = (measureWidth - blockSpace * (maxCodeLength - 1)) / 6;
+        int blockWidth = (measureWidth - blockSpace * (maxCodeLength - 1)) / maxCodeLength;
         int blockHeight = measureHeight;
         for (int i = 0; i < maxCodeLength; i++) {
             endX = startX + blockWidth;
