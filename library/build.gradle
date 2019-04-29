@@ -47,7 +47,7 @@ rootProject.ext.DEVELOPER_EMAIL = "lwjfork@gmail.com"
 // 用户名
 rootProject.ext.BINTRAY_USER = "lwjfork"
 // 这里改成库版本 ， 比如22.2.0
-rootProject.ext.PROJ_VERSION = "1.0.4"
+rootProject.ext.PROJ_VERSION = "1.0.5"
 // 这里改成库名字 ， 比如appcompat
 rootProject.ext.PROJ_NAME = "CodeEditText"
 // 这里改成github地址 ， 比如https:github.com/android/appcompat
