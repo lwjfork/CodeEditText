@@ -21,7 +21,7 @@ public class CursorDrawer extends BaseDrawer {
     private int cursorColor;// 光标颜色 没有设置时默认黑色
     private Paint cursorPaint;
 
-    public CursorDrawer(boolean showCursor, int cursorDuration, int cursorWidth, int cursorHeight,int cursorColor) {
+    public CursorDrawer(boolean showCursor, int cursorDuration, int cursorWidth, int cursorHeight, int cursorColor) {
         this.showCursor = showCursor;
         this.cursorDuration = cursorDuration;
         this.cursorWidth = cursorWidth;
@@ -45,30 +45,40 @@ public class CursorDrawer extends BaseDrawer {
 
     @Override
     public void drawCanvas() {
-
+        drawCursor();
     }
 
 
-    public void drawCursor() {
-        if (!showCursor) { // 不显示光标
-            clearCanvas(canvas);
-            return;
-        }
-        if (!isFocused()) { // 失去焦点
-            clearCanvas(canvas);
-            return;
-        }
-        if (currentBlockIndex >= blockRects.size()) { // 已经输入完成
-            clearCanvas(canvas);
-            return;
-        }
-        clearCanvas(canvas);
+    private void drawCursorLine() {
         Rect rect = blockRects.get(currentBlockIndex);
         int startX = rect.centerX() - cursorWidth / 2;
         int endX = startX;
-        int startY = rect.centerY() - (rect.bottom - rect.top) / 6;
-        int endY = rect.centerY() + (rect.bottom - rect.top) / 6;
+        int padding = Math.max((rect.height() - cursorHeight) / 2, 0);
+
+        int startY = padding;
+        int endY = startY + cursorHeight;
         canvas.drawLine(startX, startY, endX, endY, cursorPaint);
+    }
+
+    private void clearCursor() {
+        clearCanvas(canvas);
+    }
+
+    public void drawCursor() {
+        if (!showCursor) { // 不显示光标
+            clearCursor();
+            return;
+        }
+        if (!isFocused()) { // 失去焦点
+            clearCursor();
+            return;
+        }
+        if (currentBlockIndex >= blockRects.size()) { // 已经输入完成
+            clearCursor();
+            return;
+        }
+        clearCanvas(canvas);
+        drawCursorLine();
     }
 
     public void cancelCursor() {
