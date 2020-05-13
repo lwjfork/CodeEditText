@@ -21,4 +21,4 @@ jobs:
       env:
         BINTRAY_APIKEY: ${{ secrets.BINTRAY_APIKEY }}
         BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
-      run: ./gradlew :GestureLockView:bintrayUpload 
+      run: ./gradlew ':CodeEditText:bintrayUpload

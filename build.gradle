@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    def gradleVersion = "$DEFAULT_GRADLE_VERSION"
+    def gradleVersion = "3.5.3"
     File propertiesFile = file('local.properties')
     if (propertiesFile.exists()) {
         Properties localProperties = new Properties()
@@ -28,7 +28,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-//        maven {url 'https://dl.bintray.com/lwjfork/maven/'}
+        google()
     }
 }
 
