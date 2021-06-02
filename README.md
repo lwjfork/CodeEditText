@@ -2,10 +2,10 @@
 验证码，密码输入框，文本支持明文和密码及透明三种形式展示，背景支持下划线，填充色块，边框，透明四种
 
 
-## jcenter 引入
+##  引入
 
 ```
-  implementation 'com.github.lwjfork:CodeEditText:1.0.4'
+  implementation 'io.github.lwjfork:CodeEditText:1.0.5'
 
 ```
 
