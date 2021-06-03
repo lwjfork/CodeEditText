@@ -37,4 +37,4 @@ dependencies {
 }
 
 
-apply from: "${rootDir}/scripts/publish-module.gradle"
+apply from: "https://raw.githubusercontent.com/lwjfork/scriptlib/master/gradle/publish/maven/aar/publish-no-kotlin.gradle"
