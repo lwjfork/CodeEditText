@@ -6,6 +6,7 @@
 
 ```
   implementation 'io.github.lwjfork:CodeEditText:1.0.5'
+  
 
 ```
 
