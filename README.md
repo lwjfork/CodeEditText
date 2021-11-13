@@ -7,6 +7,10 @@
 ```
   implementation 'io.github.lwjfork:CodeEditText:1.0.5'
   
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ebe4af283c3e57d3b746e6a0f575a5edaece24d
 ```
 
 
